@@ -1,0 +1,22 @@
+<div class="row">
+
+  <div class="col-md-6 login-container">
+    <h2 style="margin: auto">Login </h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="usuario">Usuário:</label>
+        <input type="text" class="form-control" formControlName="usuario" id="usuario" autocomplete="off">
+        <div class="error" *ngIf="loginForm.controls['usuario'].hasError('required') && loginForm.controls['usuario'].touched">Usuário é obrigatório</div>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" class="form-control" formControlName="senha" id="senha" autocomplete="off">
+        <div class="error" *ngIf="loginForm.controls['senha'].hasError('required') && loginForm.controls['senha'].touched">Senha é obrigatória</div>
+      </div>
+      <button class="btn btn-success" [disabled]="loginForm.invalid">Acessar</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Login ou Senha inválido.</div>
+      </div>
+    </form>
+  </div>
+</div>
