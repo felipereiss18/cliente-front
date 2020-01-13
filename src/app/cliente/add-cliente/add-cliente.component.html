@@ -1,0 +1,53 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Adicionar Cliente</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" formControlName="nome" placeholder="Nome" name="nome" class="form-control" id="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input type="text" formControlName="cpf" placeholder="CPF" name="cpf" class="form-control" id="cpf"
+        >
+      <div *ngIf="!cpf.pristine && cpf.errors">
+        <p *ngIf="cpf.errors.cpfInvalido">
+          Digite um CPF válido
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cep">CEP:</label>
+      <input formControlName="cep" placeholder="CEP" name="cep" class="form-control" id="cep">
+    </div>
+
+    <div class="form-group">
+      <label for="logradouro">Logradouro:</label>
+      <input formControlName="logradouro" placeholder="Logradouro" name="logradouro" class="form-control" id="logradouro">
+    </div>
+
+    <div class="form-group">
+      <label for="complemento">Complemento:</label>
+      <input type="text" formControlName="complemento" placeholder="Complemento" name="complemento"
+             class="form-control" id="complemento">
+    </div>
+
+    <div class="form-group">
+      <label for="bairro">Bairro:</label>
+      <input type="number" formControlName="bairro" placeholder="Bairro" name="bairro" class="form-control" id="bairro">
+    </div>
+
+    <div class="form-group">
+      <label for="cidade">Cidade:</label>
+      <input formControlName="cidade" placeholder="Cidade" name="cidade" class="form-control" id="cidade">
+    </div>
+
+    <div class="form-group">
+      <label for="uf">UF:</label>
+      <input formControlName="uf" placeholder="UF" name="uf" class="form-control" id="uf">
+    </div>
+
+    <button class="btn btn-success">Salvar</button>
+  </form>
+</div>
