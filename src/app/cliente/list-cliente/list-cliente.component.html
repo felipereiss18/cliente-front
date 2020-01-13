@@ -1,0 +1,30 @@
+<div class="col-md-6 user-container">
+  <h2 style="margin: auto"> Lista de Clientes</h2>
+  <button class="btn btn-danger" style="width:140px" (click)="adicionarCliente()"> Adicionar Cliente</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Telefone</th>
+      <th>E-mail</th>
+      <th>Bairro</th>
+      <th>Cidade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td class="hidden">{{cliente.id}}</td>
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.cpf}}</td>
+      <td>{{cliente.telefones[0].numero}}</td>
+      <td>{{cliente.emails[0].descricao}}</td>
+      <td>{{cliente.endereco.bairro}}</td>
+      <td>{{cliente.endereco.cidade}}</td>
+      <td><button class="btn btn-success" (click)="excluirCliente(cliente)"> Excluir</button>
+        <button class="btn btn-success" (click)="alterarCliente(cliente)" style="margin-left: 20px;"> Alterar</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
